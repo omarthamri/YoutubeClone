@@ -92,31 +92,13 @@ class VideoCell: BaseCell {
     
     func setupThumbnailImage() {
         if let thumbnailImageUrl = video?.thumbnailImageName {
-            let url = URL(string: thumbnailImageUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.thumbnailImageView.image = UIImage(data: data!)
-                }
-            }).resume()
+            thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
         }
     }
     
     func setupProfileImage() {
         if let profileImageUrl = video?.channel?.profileImageName {
-            let url = URL(string: profileImageUrl)
-            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.userProfileImageView.image = UIImage(data: data!)
-                }
-            }).resume()
+           userProfileImageView.loadImageUsingUrlString(urlString: profileImageUrl)
         }
     }
     
