@@ -26,9 +26,7 @@ class VideoCell: BaseCell {
     var video: Video? {
         didSet {
             titleLabel.text = video?.title
-            if let thumbnameImageName = video?.thumbnailImageName {
-                thumbnailImageView.image = UIImage(named: thumbnameImageName)
-            }
+            setupThumbnailImage()
             if let profileImageName = video?.channel?.profileImageName {
                 userProfileImageView.image = UIImage(named: profileImageName)
             }
@@ -92,6 +90,21 @@ class VideoCell: BaseCell {
         textview.textColor = UIColor.lightGray
         return textview
     }()
+    
+    func setupThumbnailImage() {
+        if let thumbnailImageUrl = video?.thumbnailImageName {
+            let url = URL(string: thumbnailImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.thumbnailImageView.image = UIImage(data: data!)
+                }
+            }).resume()
+        }
+    }
     
     override func setupViews() {
         super.setupViews()

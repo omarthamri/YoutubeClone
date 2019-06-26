@@ -11,7 +11,7 @@ import UIKit
 class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
     let CellId = "CellId"
-    var videos: [Video] = {
+   /* var videos: [Video] = {
         var myChannel = Channel()
         myChannel.name = "omar"
         myChannel.profileImageName = "me"
@@ -27,10 +27,40 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
         badBloodVideo.channel = myChannel
         badBloodVideo.numberOfViews = 2222175634
         return [blankSpaceVideo,badBloodVideo]
-    }()
+    }()*/
+    var videos: [Video]?
 
+    func fetchVideos() {
+        let url = URL(string: "http://localhost/home.json")
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                self.videos = [Video]()
+                for dictionnary in json as! [[String:AnyObject]] {
+                    let video = Video()
+                    video.title = dictionnary["title"] as? String
+                    video.thumbnailImageName = dictionnary["thumbnail_image_name"] as? String
+                    self.videos?.append(video)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
+                
+            } catch let jsonError {
+                print(jsonError)
+            }
+            
+            
+        }.resume()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchVideos()
         navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 32, height: view.frame.height))
@@ -75,12 +105,13 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videos.count
+        
+        return videos?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellId, for: indexPath) as! VideoCell
-        cell.video = videos[indexPath.item]
+        cell.video = videos?[indexPath.item]
         return cell
     }
     
