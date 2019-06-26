@@ -44,6 +44,11 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
                     let video = Video()
                     video.title = dictionnary["title"] as? String
                     video.thumbnailImageName = dictionnary["thumbnail_image_name"] as? String
+                    let channelDictionnary = dictionnary["channel"] as! [String: AnyObject]
+                    let channel = Channel()
+                    channel.name = channelDictionnary["name"] as? String
+                    channel.profileImageName = channelDictionnary["profile_image_name"] as? String
+                    video.channel = channel
                     self.videos?.append(video)
                 }
                 DispatchQueue.main.async {

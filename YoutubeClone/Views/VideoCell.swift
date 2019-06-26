@@ -27,9 +27,7 @@ class VideoCell: BaseCell {
         didSet {
             titleLabel.text = video?.title
             setupThumbnailImage()
-            if let profileImageName = video?.channel?.profileImageName {
-                userProfileImageView.image = UIImage(named: profileImageName)
-            }
+            setupProfileImage()
             if let name = video?.channel?.name, let numberOfViews =  video?.numberOfViews{
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
@@ -64,6 +62,7 @@ class VideoCell: BaseCell {
         imageView.image = UIImage(named: "me")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -101,6 +100,21 @@ class VideoCell: BaseCell {
                 }
                 DispatchQueue.main.async {
                     self.thumbnailImageView.image = UIImage(data: data!)
+                }
+            }).resume()
+        }
+    }
+    
+    func setupProfileImage() {
+        if let profileImageUrl = video?.channel?.profileImageName {
+            let url = URL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.userProfileImageView.image = UIImage(data: data!)
                 }
             }).resume()
         }
