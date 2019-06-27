@@ -33,6 +33,7 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
                     channel.profileImageName = channelDictionnary["profile_image_name"] as? String
                     video.channel = channel
                     self.videos?.append(video)
+                    
                 }
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
