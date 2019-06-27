@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4859891C22C5223D00F3F1B2 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */; };
+		4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891D22C5641C00F3F1B2 /* SettingsCell.swift */; };
 		76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC522BFE35600674C99 /* AppDelegate.swift */; };
 		76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC722BFE35600674C99 /* HomeController.swift */; };
 		76B2DFCB22BFE35600674C99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B2DFC922BFE35600674C99 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		4859891D22C5641C00F3F1B2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		76B2DFC222BFE35600674C99 /* YoutubeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B2DFC522BFE35600674C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B2DFC722BFE35600674C99 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				76D0A56522C2656000224D6E /* VideoCell.swift */,
 				76D0A56822C26E8A00224D6E /* MenuBar.swift */,
 				76B70D6522C4214600AE81B7 /* BaseCell.swift */,
+				4859891D22C5641C00F3F1B2 /* SettingsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				76B2DFCE22BFE35600674C99 /* YoutubeClone.xcdatamodeld in Sources */,
 				4859891C22C5223D00F3F1B2 /* SettingsLauncher.swift in Sources */,
 				76D0A56922C26E8A00224D6E /* MenuBar.swift in Sources */,
+				4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */,
 				76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */,
 				76B70D6622C4214600AE81B7 /* BaseCell.swift in Sources */,
 				76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */,
