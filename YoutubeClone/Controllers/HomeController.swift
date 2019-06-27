@@ -11,23 +11,6 @@ import UIKit
 class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
     let CellId = "CellId"
-   /* var videos: [Video] = {
-        var myChannel = Channel()
-        myChannel.name = "omar"
-        myChannel.profileImageName = "me"
-       var blankSpaceVideo = Video()
-        blankSpaceVideo.thumbnailImageName = "taylor_swift"
-        blankSpaceVideo.title = "Taylor Swift - Blank Space"
-        blankSpaceVideo.numberOfViews = 1482779108
-        
-        blankSpaceVideo.channel = myChannel
-        var badBloodVideo = Video()
-        badBloodVideo.thumbnailImageName = "taylorswift_badblood"
-        badBloodVideo.title = "Taylor Swift - Bad Blood feat Kendrick Lamar"
-        badBloodVideo.channel = myChannel
-        badBloodVideo.numberOfViews = 2222175634
-        return [blankSpaceVideo,badBloodVideo]
-    }()*/
     var videos: [Video]?
 
     func fetchVideos() {
