@@ -74,10 +74,23 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
         navigationItem.rightBarButtonItems = [moreBarButtonItem,searchBarButtonItem]
     }
     
-    let settingLauncher = SettingsLauncher()
+    lazy var settingLauncher: SettingsLauncher = {
+       let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
     @objc func handleMore() {
         settingLauncher.showSettings()
+    }
+    
+    func showControllerForSettings(setting: Setting) {
+        let newSettingsViewController = UIViewController()
+        newSettingsViewController.navigationItem.title = setting.name
+        newSettingsViewController.view.backgroundColor = UIColor.white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.pushViewController(newSettingsViewController, animated: true)
     }
     
     @objc func handleSearch() {

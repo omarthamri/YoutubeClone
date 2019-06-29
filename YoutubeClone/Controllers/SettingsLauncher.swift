@@ -32,11 +32,13 @@ class SettingsLauncher: NSObject,UICollectionViewDelegate,UICollectionViewDataSo
         return cv
     }()
     
+    var homeController: HomeController?
+    
     @objc func showSettings () {
         if let window = UIApplication.shared.keyWindow {
             
             blackView.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
-            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismissBlank)))
             window.addSubview(blackView)
             window.addSubview(collectionView)
             let y = window.frame.height - CGFloat(self.cellHeight * self.settings.count)
@@ -51,14 +53,31 @@ class SettingsLauncher: NSObject,UICollectionViewDelegate,UICollectionViewDataSo
         
     }
     
-    @objc func handleDismiss() {
+    @objc func handleDismissBlank() {
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 0
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.cellHeight * self.settings.count))
             }
-        })
+        }) { (completed: Bool) in
+            
+        }
+    }
+
+    
+    func handleDismiss(setting: Setting) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.blackView.alpha = 0
+            if let window = UIApplication.shared.keyWindow {
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.cellHeight * self.settings.count))
+            }
+        }) { (completed: Bool) in
+            if setting.name != "Cancel" && setting.name != "" {
+                self.homeController?.showControllerForSettings(setting: setting)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,8 +91,8 @@ class SettingsLauncher: NSObject,UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(settings[indexPath.item].name)
-        handleDismiss()
+        let setting = settings[indexPath.item]
+        handleDismiss(setting: setting)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
