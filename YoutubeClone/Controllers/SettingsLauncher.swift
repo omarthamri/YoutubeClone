@@ -9,19 +9,29 @@
 import UIKit
 
 class Setting: NSObject {
-    var name: String
+    var name: SettingName
     var imageName: String
-    init(name: String,imageName: String) {
+    init(name: SettingName,imageName: String) {
         self.name = name
         self.imageName = imageName
     }
+}
+
+enum SettingName: String {
+    case Settings = "Settings"
+    case TermsPolicy = "Terms & privacy policy"
+    case sendFeedback = "Send feedback"
+    case help = "Help"
+    case Cancel = "Cancel"
+    case switchAccount = "Switch account"
 }
 
 class SettingsLauncher: NSObject,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
     let settings: [Setting] = {
-        return [Setting(name: "Settings", imageName: "settings"),Setting(name: "Terms & privacy policy", imageName: "privacy"),Setting(name: "Send feedback", imageName: "feedback"),Setting(name: "Help", imageName: "help"),Setting(name: "Switch account", imageName: "switch_account"),Setting(name: "Cancel", imageName: "cancel")]
+        let cancelSetting = Setting(name: .Cancel, imageName: "cancel")
+        return [Setting(name: .Settings, imageName: "settings"),Setting(name: .TermsPolicy, imageName: "privacy"),Setting(name: .sendFeedback, imageName: "feedback"),Setting(name: .help, imageName: "help"),Setting(name: .switchAccount, imageName: "switch_account"),cancelSetting]
     }()
     let cellHeight = 50
     let blackView = UIView()
@@ -74,7 +84,7 @@ class SettingsLauncher: NSObject,UICollectionViewDelegate,UICollectionViewDataSo
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: CGFloat(self.cellHeight * self.settings.count))
             }
         }) { (completed: Bool) in
-            if setting.name != "Cancel" && setting.name != "" {
+            if setting.name != .Cancel {
                 self.homeController?.showControllerForSettings(setting: setting)
             }
         }
