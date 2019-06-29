@@ -32,6 +32,21 @@ class MenuBar: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         addConstraintsWithFormat(format: "V:|[v0]|", views: collectionView)
         
         collectionView.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: [])
+        setupHorizontalBar()
+    }
+    var horizontalBarLeftAnchor: NSLayoutConstraint?
+    
+    func setupHorizontalBar() {
+        let horizontalBarView = UIView()
+        horizontalBarView.backgroundColor = UIColor.init(white: 0.95, alpha: 1)
+        horizontalBarView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(horizontalBarView)
+        horizontalBarLeftAnchor = horizontalBarView.leftAnchor.constraint(equalTo: self.leftAnchor)
+        horizontalBarLeftAnchor?.isActive = true
+        horizontalBarView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        horizontalBarView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1/4).isActive = true
+        horizontalBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        
         
     }
     
@@ -43,6 +58,14 @@ class MenuBar: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
         cell.imageView.image = UIImage(named: imageNames[indexPath.item])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let x = frame.width / 4 * CGFloat(indexPath.item)
+        horizontalBarLeftAnchor?.constant = x
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -14,37 +14,10 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
     var videos: [Video]?
 
     func fetchVideos() {
-        let url = URL(string: "http://localhost/home.json")
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
-                self.videos = [Video]()
-                for dictionnary in json as! [[String:AnyObject]] {
-                    let video = Video()
-                    video.title = dictionnary["title"] as? String
-                    video.thumbnailImageName = dictionnary["thumbnail_image_name"] as? String
-                    let channelDictionnary = dictionnary["channel"] as! [String: AnyObject]
-                    let channel = Channel()
-                    channel.name = channelDictionnary["name"] as? String
-                    channel.profileImageName = channelDictionnary["profile_image_name"] as? String
-                    video.channel = channel
-                    self.videos?.append(video)
-                    
-                }
-                DispatchQueue.main.async {
-                    self.collectionView?.reloadData()
-                }
-                
-            } catch let jsonError {
-                print(jsonError)
-            }
-            
-            
-        }.resume()
+        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+            self.videos = videos
+            self.collectionView?.reloadData()
+        }
     }
     
     override func viewDidLoad() {

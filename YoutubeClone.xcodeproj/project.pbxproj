@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4859891C22C5223D00F3F1B2 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */; };
 		4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891D22C5641C00F3F1B2 /* SettingsCell.swift */; };
+		485B11D222C818A900764887 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B11D122C818A900764887 /* ApiService.swift */; };
 		76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC522BFE35600674C99 /* AppDelegate.swift */; };
 		76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC722BFE35600674C99 /* HomeController.swift */; };
 		76B2DFCB22BFE35600674C99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B2DFC922BFE35600674C99 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		4859891D22C5641C00F3F1B2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		485B11D122C818A900764887 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		76B2DFC222BFE35600674C99 /* YoutubeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B2DFC522BFE35600674C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B2DFC722BFE35600674C99 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		485B11D022C8188E00764887 /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				485B11D122C818A900764887 /* ApiService.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
 		76B2DFB922BFE35600674C99 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		76B2DFC422BFE35600674C99 /* YoutubeClone */ = {
 			isa = PBXGroup;
 			children = (
+				485B11D022C8188E00764887 /* ApiService */,
 				76D0A56A22C2BEB200224D6E /* Models */,
 				76D0A56722C2659700224D6E /* Controllers */,
 				76D0A56422C2653000224D6E /* Views */,
@@ -321,6 +332,7 @@
 				76D0A56922C26E8A00224D6E /* MenuBar.swift in Sources */,
 				4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */,
 				76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */,
+				485B11D222C818A900764887 /* ApiService.swift in Sources */,
 				76B70D6622C4214600AE81B7 /* BaseCell.swift in Sources */,
 				76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */,
 				76D0A56C22C2BF9B00224D6E /* Video.swift in Sources */,
