@@ -23,6 +23,8 @@ class MenuBar: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
     let cellId = "cellId"
     
+    var homeController: HomeController?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: cellId)
@@ -61,11 +63,12 @@ class MenuBar: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let x = frame.width / 4 * CGFloat(indexPath.item)
+        /*let x = frame.width / 4 * CGFloat(indexPath.item)
         horizontalBarLeftAnchor?.constant = x
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: nil)*/
+        homeController?.scrollToMenuIndex(menuIndex: indexPath.item )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
