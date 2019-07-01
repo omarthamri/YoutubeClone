@@ -12,6 +12,7 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
     
     let CellId = "CellId"
     
+    let titles = ["Home","Trending","Subscription","Account"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,13 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
     func scrollToMenuIndex(menuIndex: Int) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
         collectionView?.scrollToItem(at: indexPath, at: [], animated: true)
+       setTitleForIndex(Index: menuIndex)
+    }
+    
+    func setTitleForIndex(Index: Int) {
+        if let titleLabel = navigationItem.titleView as? UILabel {
+            titleLabel.text = "  \(titles[Index])"
+        }
     }
     
     lazy var menuBar: MenuBar = {
@@ -114,6 +122,7 @@ class HomeController: UICollectionViewController,UICollectionViewDelegateFlowLay
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let indexPath = IndexPath(row: Int(targetContentOffset.pointee.x / view.frame.width), section: 0)
+        setTitleForIndex(Index: Int(targetContentOffset.pointee.x / view.frame.width))
         menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
     }
     
