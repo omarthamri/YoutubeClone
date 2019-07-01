@@ -11,6 +11,8 @@
 		4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891D22C5641C00F3F1B2 /* SettingsCell.swift */; };
 		485B11D222C818A900764887 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B11D122C818A900764887 /* ApiService.swift */; };
 		487614B322CAACD80068A310 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487614B222CAACD80068A310 /* FeedCell.swift */; };
+		487614B522CAC0170068A310 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487614B422CAC0170068A310 /* TrendingCell.swift */; };
+		487614B722CAC4220068A310 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487614B622CAC4220068A310 /* SubscriptionCell.swift */; };
 		76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC522BFE35600674C99 /* AppDelegate.swift */; };
 		76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B2DFC722BFE35600674C99 /* HomeController.swift */; };
 		76B2DFCB22BFE35600674C99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B2DFC922BFE35600674C99 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		4859891D22C5641C00F3F1B2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		485B11D122C818A900764887 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		487614B222CAACD80068A310 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		487614B422CAC0170068A310 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
+		487614B622CAC4220068A310 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		76B2DFC222BFE35600674C99 /* YoutubeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B2DFC522BFE35600674C99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B2DFC722BFE35600674C99 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 				76B70D6522C4214600AE81B7 /* BaseCell.swift */,
 				4859891D22C5641C00F3F1B2 /* SettingsCell.swift */,
 				487614B222CAACD80068A310 /* FeedCell.swift */,
+				487614B422CAC0170068A310 /* TrendingCell.swift */,
+				487614B622CAC4220068A310 /* SubscriptionCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 			files = (
 				76D0A56622C2656000224D6E /* VideoCell.swift in Sources */,
 				76B2DFCE22BFE35600674C99 /* YoutubeClone.xcdatamodeld in Sources */,
+				487614B722CAC4220068A310 /* SubscriptionCell.swift in Sources */,
 				4859891C22C5223D00F3F1B2 /* SettingsLauncher.swift in Sources */,
 				76D0A56922C26E8A00224D6E /* MenuBar.swift in Sources */,
 				4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */,
@@ -340,6 +347,7 @@
 				76B70D6622C4214600AE81B7 /* BaseCell.swift in Sources */,
 				76B2DFC622BFE35600674C99 /* AppDelegate.swift in Sources */,
 				76D0A56C22C2BF9B00224D6E /* Video.swift in Sources */,
+				487614B522CAC0170068A310 /* TrendingCell.swift in Sources */,
 				76D0A56322C264C900224D6E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

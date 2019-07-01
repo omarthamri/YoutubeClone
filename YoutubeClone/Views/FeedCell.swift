@@ -23,8 +23,8 @@ class FeedCell: BaseCell,UICollectionViewDataSource,UICollectionViewDelegate,UIC
     
     var videos: [Video]?
     
-    func fetchVideos() {
-        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
+     func fetchVideos() {
+        ApiService.sharedInstance.fetchFeedUrlString(urlString: "http://localhost/home.json") { (videos) in
             self.videos = videos
             self.collectionView.reloadData()
         }

@@ -12,8 +12,8 @@ class ApiService: NSObject {
     
     static let sharedInstance = ApiService()
     
-    func fetchVideos(completion: @escaping  ([Video]) -> ()) {
-        let url = URL(string: "http://localhost/home.json")
+    func fetchFeedUrlString(urlString: String, completion: @escaping  ([Video]) -> ()) {
+        let url = URL(string: urlString)
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil {
                 print(error)
@@ -45,5 +45,6 @@ class ApiService: NSObject {
             
             }.resume()
     }
+    
 
 }
