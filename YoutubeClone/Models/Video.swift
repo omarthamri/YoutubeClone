@@ -8,15 +8,18 @@
 
 import UIKit
 
+@objcMembers
 class Video: NSObject {
-    var thumbnailImageName: String?
-    var title: String?
-    var numberOfViews: NSNumber?
-    var uploadDate: NSDate?
-    var channel: Channel?
+     var thumbnail_image_name: String?
+     var title: String?
+     var number_of_views: NSNumber?
+     var uploadDate: NSDate?
+     var channel: Channel?
+     var duration: NSNumber?
 }
 
+@objcMembers
 class Channel: NSObject {
     var name: String?
-    var profileImageName: String?
+    var profile_image_name: String?
 }
