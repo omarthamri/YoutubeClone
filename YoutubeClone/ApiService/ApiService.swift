@@ -23,24 +23,15 @@ class ApiService: NSObject {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
                 var videos = [Video]()
                 for dictionnary in json as! [[String:AnyObject]] {
-                    let video = Video()
-                    video.setValuesForKeys(dictionnary)
-                    let channelDictionnary = dictionnary["channel"] as! [String: AnyObject]
-                    let channel = Channel()
-                    channel.setValuesForKeys(channelDictionnary)
-                    video.channel = channel
+                    let video = Video(dictionnary: dictionnary)
                     videos.append(video)
-                    
                 }
                 DispatchQueue.main.async {
                     completion(videos)
                 }
-                
             } catch let jsonError {
                 print(jsonError)
             }
-            
-            
             }.resume()
     }
     
