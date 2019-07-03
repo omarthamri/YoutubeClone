@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		484930D622CD0340000AF10B /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484930D522CD0340000AF10B /* VideoLauncher.swift */; };
 		4859891C22C5223D00F3F1B2 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */; };
 		4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4859891D22C5641C00F3F1B2 /* SettingsCell.swift */; };
 		485B11D222C818A900764887 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485B11D122C818A900764887 /* ApiService.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		484930D522CD0340000AF10B /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		4859891B22C5223D00F3F1B2 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		4859891D22C5641C00F3F1B2 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		485B11D122C818A900764887 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				76D0A56222C264C900224D6E /* Extensions.swift */,
+				484930D522CD0340000AF10B /* VideoLauncher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				76D0A56922C26E8A00224D6E /* MenuBar.swift in Sources */,
 				4859891E22C5641C00F3F1B2 /* SettingsCell.swift in Sources */,
 				487614B322CAACD80068A310 /* FeedCell.swift in Sources */,
+				484930D622CD0340000AF10B /* VideoLauncher.swift in Sources */,
 				76B2DFC822BFE35600674C99 /* HomeController.swift in Sources */,
 				485B11D222C818A900764887 /* ApiService.swift in Sources */,
 				76B70D6622C4214600AE81B7 /* BaseCell.swift in Sources */,
