@@ -50,6 +50,7 @@ class VideoPlayerView: UIView {
         slider.minimumTrackTintColor = UIColor.red
         slider.maximumTrackTintColor = UIColor.white
         slider.setThumbImage(UIImage(named: "thumb"), for: .normal)
+        slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
         return slider
     }()
     
@@ -66,6 +67,17 @@ class VideoPlayerView: UIView {
         }
         
         isPlaying = !isPlaying
+    }
+    
+    @objc func handleSliderChange() {
+        if let duration = player?.currentItem?.duration {
+            let seconds = CMTimeGetSeconds(duration)
+            let value = Float64(videoSlider.value) * seconds
+            let seekTime = CMTime(value: Int64(value), timescale: 1)
+            player?.seek(to: seekTime, completionHandler: { (completedSeek) in
+                
+            })
+        }
     }
     
     override init(frame: CGRect) {
@@ -112,6 +124,12 @@ class VideoPlayerView: UIView {
             controlContainerView.backgroundColor = UIColor.clear
             pausePlayButton.isHidden = false
             isPlaying = true
+            if let duration = player?.currentItem?.duration {
+                let seconds = CMTimeGetSeconds(duration)
+                let secondsText = seconds.truncatingRemainder(dividingBy: 60)
+                let minutesText = String(format: "%02d",Int(seconds / 60))
+                videoLengthLabel.text = "\(minutesText):\(Int(secondsText))"
+            }
         }
     }
     
