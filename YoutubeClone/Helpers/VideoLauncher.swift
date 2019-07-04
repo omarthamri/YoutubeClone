@@ -34,6 +34,25 @@ class VideoPlayerView: UIView {
         return button
     }()
     
+    let videoLengthLabel: UILabel = {
+       let label = UILabel()
+        label.text = "00:00"
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    let videoSlider: UISlider = {
+       let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumTrackTintColor = UIColor.red
+        slider.maximumTrackTintColor = UIColor.white
+        slider.setThumbImage(UIImage(named: "thumb"), for: .normal)
+        return slider
+    }()
+    
     var player: AVPlayer?
     var isPlaying = false
     
@@ -63,6 +82,16 @@ class VideoPlayerView: UIView {
         pausePlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         backgroundColor = UIColor.black
+        controlContainerView.addSubview(videoLengthLabel)
+        videoLengthLabel.rightAnchor.constraint(equalTo: rightAnchor,constant: -8).isActive = true
+        videoLengthLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoLengthLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        videoLengthLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        controlContainerView.addSubview(videoSlider)
+        videoSlider.rightAnchor.constraint(equalTo: videoLengthLabel.leftAnchor).isActive = true
+        videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoSlider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func setupPlayerView() {
